@@ -1,0 +1,15 @@
+version: '2.1'
+networks: 
+volumes:
+  zwavejs2mqtt: {}
+services:
+  main:
+    image: ""
+    ports:
+      - "3000:3000"
+      - "8091:8091"
+    volumes:
+      - "zwavejs2mqtt:/usr/src/app/store"
+    privileged: true
+    restart: always
+    network_mode: host
