@@ -1,12 +1,15 @@
 version: '2.1'
 volumes:
   zwavejs2mqtt: {}
+networks:
+  zwave: {}
 services:
   main:
+    container_name: main
     image: "zwavejs/zwavejs2mqtt:latest"
     ports:
       - "3000:3000"
-      - "80:8091"
+      - "8091:8091"
     volumes:
       - "zwavejs2mqtt:/usr/src/app/store"
     devices:
@@ -14,3 +17,9 @@ services:
     privileged: true
     restart: always
     network_mode: host
+    stop_signal: SIGINT
+    environment:
+      - SESSION_SECRET=jacobbrunson
+      - ZWAVEJS_EXTERNAL_CONFIG=/usr/src/app/store/.config-db
+    networks:
+      - zwave
