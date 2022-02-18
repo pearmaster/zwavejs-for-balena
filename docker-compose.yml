@@ -13,7 +13,8 @@ services:
     volumes:
       - "zwavejs2mqtt:/usr/src/app/store"
     devices:
-      - "/dev/ttyUSB0:/dev/zwave"
+      - "/dev/ttyUSB0"
+      - "/dev/ttyUSB1"
     privileged: true
     restart: always
     network_mode: host
