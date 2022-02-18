@@ -9,6 +9,8 @@ services:
       - "80:8091"
     volumes:
       - "zwavejs2mqtt:/usr/src/app/store"
+    devices:
+      - "/dev/ttyUSB0"
     privileged: true
     restart: always
     network_mode: host
