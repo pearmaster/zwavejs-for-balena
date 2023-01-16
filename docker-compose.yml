@@ -7,7 +7,7 @@ networks:
 services:
   main:
     container_name: zwave-js-ui
-    image: "zwavejs/zwave-js-ui:latest"
+    image: "zwavejs/zwave-js-ui:8.6.2"
     restart: always
     tty: true
     stop_signal: SIGINT
